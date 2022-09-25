@@ -43,6 +43,7 @@ for(var i = 0; i<=9; i++){
 
     </View>
   );
+  
 }
  
 const styles = StyleSheet.create({
