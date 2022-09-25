@@ -18,8 +18,21 @@ for(var i = 0; i<=9; i++){
   numbers.push(i);
 }
 
-function logicCalculator(){
-  alert('lulu');
+function logicCalculator(n){
+  if(operatorSign == ""){
+    setFirstNumber(parseInt(firstNumber.toString() + n.toString() ));
+    setStringCalc(parseInt(firstNumber.toString() + n.toString()) );
+  }
+
+  if((n == "/" || n == "*" || n == "+" || n == "-") && secondNumber == 0){
+    setStringCalc(firstNumber.toString() + n);
+    setOperatorSign(n); 
+  }
+
+  if(operatorSign != ""){
+    setSecondNumber(parseInt(secondNumber.toString() + n.toString() ));
+    setStringCalc(firstNumber+operatorSign+parseInt(secondNumber.toString()+n.toString()));
+  }
 }
 
   return (
@@ -29,10 +42,11 @@ function logicCalculator(){
       <View style={styles.topo}><Text style={styles.textStringCalc}>{stringCalc}</Text></View>
 
       <View style={{flexDirection:'row', height:'16.6%',alignItems:'center'}}>
-        <TouchableOpacity style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>+</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>-</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>/</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>x</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => logicCalculator('+')} style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>+</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => logicCalculator('-')} style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>-</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => logicCalculator('/')} style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>/</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => logicCalculator('*')} style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>*</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => logicCalculator('=')} style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>=</Text></TouchableOpacity>
       </View>
 
       <View style={styles.viewNumbers}>
@@ -67,7 +81,7 @@ const styles = StyleSheet.create({
   },
 
   touchAbleOpacityStyle: {
-    width:'25%', 
+    width:'20%', 
     backgroundColor:'rgb(20,20,20)',
     height:'100%',
     justifyContent:'center'
