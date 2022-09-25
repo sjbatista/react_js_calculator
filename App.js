@@ -24,10 +24,10 @@ for(var i = 0; i<=9; i++){
       <View style={styles.topo}><Text style={{fontSize:24}}>{stringCalc}</Text></View>
 
       <View style={{flex:1, flexDirection:'row'}}>
-        <TouchableHighlight style={{width:'25%'}}><Text style={{fontSize:24}}>+</Text></TouchableHighlight>
-        <TouchableHighlight style={{width:'25%'}}><Text style={{fontSize:24}}>-</Text></TouchableHighlight>
-        <TouchableHighlight style={{width:'25%'}}><Text style={{fontSize:24}}>/</Text></TouchableHighlight>
-        <TouchableHighlight style={{width:'25%'}}><Text style={{fontSize:24}}>x</Text></TouchableHighlight>
+        <TouchableHighlight style={{width:'25%'}}><Text style={{textAlign:'center', fontSize:24}}>+</Text></TouchableHighlight>
+        <TouchableHighlight style={{width:'25%'}}><Text style={{textAlign:'center', fontSize:24}}>-</Text></TouchableHighlight>
+        <TouchableHighlight style={{width:'25%'}}><Text style={{textAlign:'center', fontSize:24}}>/</Text></TouchableHighlight>
+        <TouchableHighlight style={{width:'25%'}}><Text style={{textAlign:'center', fontSize:24}}>x</Text></TouchableHighlight>
       </View>
 
       <View>
@@ -44,7 +44,7 @@ for(var i = 0; i<=9; i++){
     </View>
   );
 }
-
+ 
 const styles = StyleSheet.create({
   container: {
     flex:1
