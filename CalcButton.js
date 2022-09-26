@@ -9,7 +9,7 @@ export default function CalcButton(props) {
         
         <View style={{backgroundColor:'black', borderColor:'white', borderWidth:1, width:'33.3%', height:'25%'}}>
         <TouchableOpacity onPress={() => props.logicCalculator(props.number)} style={{width: '100%', height:'100%', justifyContent:'center', alignItems:'center'}}>    
-        <Text style={{ fontSize:24, color:'white',}}>
+        <Text style={{ fontSize:29, color:'white',}}>
             {props.number.toString()}
         </Text>
         </TouchableOpacity>

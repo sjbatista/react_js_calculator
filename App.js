@@ -33,6 +33,26 @@ function logicCalculator(n){
     setSecondNumber(parseInt(secondNumber.toString() + n.toString() ));
     setStringCalc(firstNumber+operatorSign+parseInt(secondNumber.toString()+n.toString()));
   }
+
+  if(n == "="){
+    let result = 0;
+
+    if(operatorSign == "+"){
+      result=firstNumber+secondNumber;
+    }else if(operatorSign == "-"){
+      result=firstNumber-secondNumber;
+    }else if(operatorSign == "/"){
+      result=firstNumber/secondNumber;
+    }else if(operatorSign == "*"){
+      result=firstNumber*secondNumber;
+    }
+
+    setStringCalc(result);
+    setOperatorSign("");
+    setFirstNumber(result);
+    setSecondNumber(0);
+    
+  }
 }
 
   return (
@@ -41,7 +61,7 @@ function logicCalculator(n){
       
       <View style={styles.topo}><Text style={styles.textStringCalc}>{stringCalc}</Text></View>
 
-      <View style={{flexDirection:'row', height:'16.6%',alignItems:'center'}}>
+      <View style={{flexDirection:'row', height:'14%',alignItems:'center', marginTop:10, marginBottom:10}}>
         <TouchableOpacity onPress={() => logicCalculator('+')} style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>+</Text></TouchableOpacity>
         <TouchableOpacity onPress={() => logicCalculator('-')} style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>-</Text></TouchableOpacity>
         <TouchableOpacity onPress={() => logicCalculator('/')} style={styles.touchAbleOpacityStyle}><Text style={styles.textSignStyle}>/</Text></TouchableOpacity>
@@ -67,7 +87,8 @@ function logicCalculator(n){
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor:'black'
+    backgroundColor:'black',
+    padding:15
     
   },
 
@@ -83,8 +104,10 @@ const styles = StyleSheet.create({
   touchAbleOpacityStyle: {
     width:'20%', 
     backgroundColor:'rgb(20,20,20)',
-    height:'100%',
-    justifyContent:'center'
+    height:'70%',
+    justifyContent:'center',
+    borderColor:'black',
+    borderWidth:2
   },
 
   textSignStyle: {
@@ -103,7 +126,7 @@ const styles = StyleSheet.create({
     flexWrap:'wrap',
     borderTopColor:'black',
     borderTopWidth:2,
-    height:'66.8%'
+    height:'60%'
   }
 });
 
